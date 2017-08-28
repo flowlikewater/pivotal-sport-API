@@ -15,6 +15,16 @@ class EventsController < ApplicationController
       render json: @event.errors, status: :unprocessable_entity
     end
   end
+  def update
+    if @event.update(event_params)
+      render json: @event
+    else
+      render json: @event.errors, status: :unprocessable_entity
+    end
+  end
+  def destroy
+    @event.destroy
+  end
 
   private
     def set_event
