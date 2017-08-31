@@ -35,5 +35,4 @@ class EventsController < ApplicationController
       params.require(:event).permit!
     end
 
-
 end
