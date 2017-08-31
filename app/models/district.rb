@@ -1,3 +1,3 @@
 class District < ApplicationRecord
-  belongs_to :events
+  has_many :events
 end

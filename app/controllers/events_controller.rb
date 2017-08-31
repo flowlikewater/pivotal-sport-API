@@ -1,8 +1,5 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
-  has_one :district
-  belongs_to :user
-  has_one :sport
 
   def index
     @events = Event.all
