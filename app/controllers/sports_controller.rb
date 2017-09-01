@@ -4,7 +4,6 @@ class SportsController < ApplicationController
   # GET /sports
   def index
     @sports = Sport.all
-
     render json: @sports
   end
 

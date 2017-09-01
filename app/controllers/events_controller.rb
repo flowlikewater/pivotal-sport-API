@@ -3,8 +3,13 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    puts @events
-    render json: @events.to_json
+    puts params[:name]
+    if params[:name]
+      @events = Event.search(params[:name])
+    else
+      @events = Event.all
+    end
+    render json: @events.to_json(:include => [:user])
   end
   def show
     render json: @event.to_json
