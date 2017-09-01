@@ -3,10 +3,11 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    render json: @events
+    puts @events
+    render json: @events.to_json
   end
   def show
-    render json: @event
+    render json: @event.to_json
   end
   def create
     @event= Event.new(event_params)

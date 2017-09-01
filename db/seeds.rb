@@ -6,10 +6,59 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do |num|
-  num += 1
-  Event.create!(
-    name: "test event #{num}",
-    description: "description event #{num}"
-  )
+class Event < ApplicationRecord
+
+list=[
+  ["Hockey Training", "5 on 5 hockey match in beautiful field in the Hockey Jockey Low Key Club", 1, 1, 1, "professional", "competitive", "indoor", 100, "https://static01.nyt.com/images/2012/07/13/sports/olympics/13rachel/13rachel-blog480.jpg", "10/10/2017", "15:00", "Hockey Jockey Low Key Club, 33 Lockhart Road, Wan Chai"],
+  ["Frisbee Training", "5 on 5 frisbee match in beautiful field in the Frisbee Jockey Low Key Club", 2,2,2, "beginners", "friendly", "outdoor", 300, "http://www.wfdf.org/component/joomgallery/image?format=raw&type=img&id=7", "11/12/2017", "18:00", "Frisbee Jockey Low Key Club, 33 Lockhart Road, Wan Chai"]
+]
+
+list.each do |name,description,sport_id,district_id,user_id,level,intensity,terrain,price,imageUpload,date,time,address|
+  Event.create(name:name,description:description,sport_id:sport_id,district_id:district_id,user_id:user_id,level:level,intensity:intensity,terrain:terrain,price:price,imageUpload:imageUpload,date:date,time:time,address:address)
+  end
 end
+
+class District < ApplicationRecord
+list = [
+  ["Causeway Bay","22.2859787","114.1914919"],
+  ["Central","22.2799907","114.1587983"],
+  ["Discovery Bay","22.2921406","114.0101467"],
+  ["Fanling","22.4916829","114.1414685"],
+  ["Hung Hom","22.3055658","114.1887233"],
+  ["Jordan","22.3048612","114.1692021"],
+  ["Kowloon City","22.3232097","114.1855505"],
+  ["Lantau Island","22.2664984","113.941751"],
+  ["Mong Kok","22.3203648","114.169773"],
+  ["Olympic","22.2736403","114.1875011"],
+  ["Sai Kung","22.383689","114.2707867"],
+  ["Sheung Wan","22.2863943","114.1491375"],
+  ["Tin Hau","22.2823972","114.1922382"],
+  ["Tseung Kwan O","22.3119357","114.2568776"],
+  ["Tsim Sha Tsui","22.2988123","114.1721746"],
+  ["Wan Chai","22.276022","114.1751471"],
+  ["Yau Ma Tei","22.3068537","114.1714423"]
+  ]
+  list.each do |name, lat, lng|
+    District.create( name: name , lat: lat , lng: lng)
+  end
+end
+
+class Sport < ApplicationRecord
+list = [
+  ["Hockey", "Hockey is a sport in which two teams play against each other by trying to maneuver a ball or a puck into the opponent's goal using a hockey stick.", "A field hockey match consists of two halves, usually 35 minutes each, and begins with a pass back (a non-defended pass from one teammate to another at mid-field). There are 11 players to a side, one of whom is a goalkeeper. The object of the game is to score more goals than the opposition.", "http://www.rulesofsport.com/images/jreviews/tn/tn_17_field-hockey-1345198644.jpg"],
+  ["Ultimate Frisbee","Ultimate, originally known as ultimate frisbee, is a non-contact team sport originally played by players with a flying disc (frisbee).","Two teams of seven players compete on a playing field about the same length as a football field, but narrower. At each end of the playing field there is an end zone.","http://a.espncdn.com/photo/2010/1102/pg2_frisbee_576.jpg"]
+]
+  list.each do |name, description, rules, imageUrl|
+    Sport.create( name: name , description: description , rules: rules, imageUrl:imageUrl)
+  end
+end
+
+# class User < Devise::RegistrationsController
+# list = [
+#   ["Keniva Ng", "password", "password", "ngOninit", "assets/img/faces/mp.jpg", "ngOnit@gmail.com", 2, "Do not trigger Ken, or he will Ng OnInit the shit out of you"],
+#   ["Alisha Lui", "password", "password", "Entrepreneur, winner of cyberport incubation fund 2017", "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAv-AAAAJGZmMzRiZmY0LWUzOTctNGVmNi1hYjI4LWE0Y2U4YmI5ZDI3Nw.jpg", "alisha@gmail.com", 3, "I am famous"],
+# ]
+#   list.each do |name, password, password_confirmation, nickname, image, email, tier, description|
+#     User.create!( name: name , password: password, password_confirmation: password_confirmation, nickname: nickname, image: image, email:email, tier:tier, description:description)
+#   end
+# end
