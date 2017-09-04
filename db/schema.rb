@@ -49,10 +49,12 @@ ActiveRecord::Schema.define(version: 20170904095100) do
     t.string "lastName"
     t.string "nickname"
     t.string "image"
-    t.string "tier"
+    t.integer "tier"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_details_on_user_id"
   end
 
   create_table "districts", force: :cascade do |t|
@@ -117,9 +119,7 @@ ActiveRecord::Schema.define(version: 20170904095100) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "{:index=>true}_id"
-    t.bigint "detail_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["detail_id"], name: "index_users_on_detail_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true

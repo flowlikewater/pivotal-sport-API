@@ -5,11 +5,11 @@ class CreateTableUserDetails < ActiveRecord::Migration[5.1]
       t.string :lastName
       t.string :nickname
       t.string :image
-      t.string :tier
+      t.integer :tier
       t.string :description
       t.timestamps
     end
-    add_reference :users, :detail, index: true
+    add_reference :details, :user, index: true
   end
 end
 
