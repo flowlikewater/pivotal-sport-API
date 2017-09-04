@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
   before_save -> { skip_confirmation! }
   # internal server error if include confirmable - two ways to bypass error: 1. add before save -> {skip_confirmation!}, 2. remove confirmable from devise :confirmable
   has_many :events
+  has_one :user_detail
 
 end
