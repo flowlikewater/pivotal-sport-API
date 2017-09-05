@@ -46,19 +46,26 @@ end
 class Sport < ApplicationRecord
 list = [
   ["Hockey", "Hockey is a sport in which two teams play against each other by trying to maneuver a ball or a puck into the opponent's goal using a hockey stick.", "A field hockey match consists of two halves, usually 35 minutes each, and begins with a pass back (a non-defended pass from one teammate to another at mid-field). There are 11 players to a side, one of whom is a goalkeeper. The object of the game is to score more goals than the opposition.", "http://www.rulesofsport.com/images/jreviews/tn/tn_17_field-hockey-1345198644.jpg"],
-  ["Ultimate Frisbee","Ultimate, originally known as ultimate frisbee, is a non-contact team sport originally played by players with a flying disc (frisbee).","Two teams of seven players compete on a playing field about the same length as a football field, but narrower. At each end of the playing field there is an end zone.","http://a.espncdn.com/photo/2010/1102/pg2_frisbee_576.jpg"]
+  ["Ultimate Frisbee","Ultimate, originally known as ultimate frisbee, is a non-contact team sport originally played by players with a flying disc (frisbee).","Two teams of seven players compete on a playing field about the same length as a football field, but narrower. At each end of the playing field there is an end zone.","http://a.espncdn.com/photo/2010/1102/pg2_frisbee_576.jpg"],
+  ["Rugby"],
+  ["Football"],
+  ["Sport5"],
+  ["Sport6"],
+  ["Sport7"],
+  ["Sport8"],
+  ["Sport9"],
+  ["Sport10"],
+  ["Sport11"],
+  ["Sport12"],
+  ["Sport13"],
+  ["Sport14"],
+  ["Sport15"],
+  ["Sport16"],
+  ["Sport17"],
+  ["Sport18"]
 ]
   list.each do |name, description, rules, imageUrl|
     Sport.create( name: name , description: description , rules: rules, imageUrl:imageUrl)
   end
 end
 
-# class User < Devise::RegistrationsController
-# list = [
-#   ["Keniva Ng", "password", "password", "ngOninit", "assets/img/faces/mp.jpg", "ngOnit@gmail.com", 2, "Do not trigger Ken, or he will Ng OnInit the shit out of you"],
-#   ["Alisha Lui", "password", "password", "Entrepreneur, winner of cyberport incubation fund 2017", "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAv-AAAAJGZmMzRiZmY0LWUzOTctNGVmNi1hYjI4LWE0Y2U4YmI5ZDI3Nw.jpg", "alisha@gmail.com", 3, "I am famous"],
-# ]
-#   list.each do |name, password, password_confirmation, nickname, image, email, tier, description|
-#     User.create!( name: name , password: password, password_confirmation: password_confirmation, nickname: nickname, image: image, email:email, tier:tier, description:description)
-#   end
-# end
