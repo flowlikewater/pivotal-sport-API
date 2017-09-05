@@ -1,4 +1,7 @@
 class DetailsController < ApplicationController
+
+before_action :set_detail, only: [:show, :update, :destroy]
+  
   def index
     @details = Detail.all
     render json: @details

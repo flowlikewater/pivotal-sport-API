@@ -11,9 +11,11 @@ class EventsController < ApplicationController
     end
     render json: @events.to_json(:include => [:user])
   end
+  
   def show
     render json: @event.to_json
   end
+
   def create
     @event= Event.new(event_params)
     if @event.save
