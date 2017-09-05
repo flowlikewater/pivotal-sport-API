@@ -10,7 +10,7 @@ class Event < ApplicationRecord
 
 list=[
   ["Hockey Training", "5 on 5 hockey match in beautiful field in the Hockey Jockey Low Key Club", 1, 1, 1, "professional", "competitive", "indoor", 100, "https://static01.nyt.com/images/2012/07/13/sports/olympics/13rachel/13rachel-blog480.jpg", "10/10/2017", "15:00", "Hockey Jockey Low Key Club, 33 Lockhart Road, Wan Chai"],
-  ["Frisbee Training", "5 on 5 frisbee match in beautiful field in the Frisbee Jockey Low Key Club", 2,2,2, "beginners", "friendly", "outdoor", 300, "http://www.wfdf.org/component/joomgallery/image?format=raw&type=img&id=7", "11/12/2017", "18:00", "Frisbee Jockey Low Key Club, 33 Lockhart Road, Wan Chai"]
+  ["Frisbee Training", "5 on 5 frisbee match in beautiful field in the Frisbee Jockey Low Key Club", 2,2,2, "beginners", "friendly", "outdoor", 300, "http://www.wfdf.org/component/joomgallery/image?format=raw&type=img&id=7", "11/12/2017", "18:00", "Southern Football Stadium, 33 Lockhart Road, Wan Chai"]
 ]
 
 list.each do |name,description,sport_id,district_id,user_id,level,intensity,terrain,price,imageUpload,date,time,address|
