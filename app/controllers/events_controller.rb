@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
-    render json: @events.to_json(:include => [:user])
+    render json: @events.to_json(:include => [:district, :user])
   end
 
   def show
