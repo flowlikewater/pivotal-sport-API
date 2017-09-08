@@ -1,10 +1,10 @@
 class DetailsController < ApplicationController
 
 before_action :set_detail, only: [:show, :update, :destroy]
-  
+
   def index
-    @details = Detail.all
-    render json: @details
+    @details = Detail.all.order("id ASC")
+    render json: @details.to_json(:include => :user)
   end
 
   # GET /details/1
@@ -15,7 +15,6 @@ before_action :set_detail, only: [:show, :update, :destroy]
   # POST /details
   def create
     @detail = Detail.new(detail_params)
-
     if @detail.save
       render json: @detail, status: :created, location: @detail
     else
@@ -26,7 +25,7 @@ before_action :set_detail, only: [:show, :update, :destroy]
   # PATCH/PUT /details/1
   def update
     if @detail.update(detail_params)
-      render json: @detail
+      render json: @detail.to_json(:include => :user)
     else
       render json: @detail.errors, status: :unprocessable_entity
     end

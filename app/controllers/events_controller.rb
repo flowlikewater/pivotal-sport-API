@@ -3,17 +3,23 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    puts params[:name]
     if params[:name]
+      @sports = []
+      Sport.search(params[:name]).each do |sport|
+        @sports.push(sport.name)
+      end 
       @events = Event.search(params[:name])
     else
       @events = Event.all
     end
-    render json: @events.to_json(:include => {:user=>{
-      :include => :detail
-    } })
+    render json: {:events=>@events.as_json(:include => [:district, {:user=>{
+                                                          :include => :detail}}, {:sport=> {:only => :name }}]),
+                  :sports=>@sports.as_json()}
+    # render json: @events.to_json(:include => [:district, {:user=>{
+    #                                                       :include => :detail}}, {:sport=> {:only => :name }}])
+    # render json: @events.to_json(:include => [:district, :user])
   end
-  
+
   def show
     # render json: @event.to_json(:includes => [:user])
     render json: @event.to_json(:include => {:user=>{
