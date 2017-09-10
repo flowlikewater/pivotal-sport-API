@@ -18,6 +18,8 @@ Bundler.require(*Rails.groups)
 
 module RailsAngular2App
   class Application < Rails::Application
+
+    config.time_zone = "Asia/Hong_Kong"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.middleware.use Rack::Cors do
